@@ -77,5 +77,5 @@ const SelectImagePage=()=>{
 
 > screenshot
 
-![screenshot](media-lib.png)
-![screenshot](media-lib-select.png)
+![screenshot](https://github.com/milon27/react-media-ilbrary/raw/master/media-lib.png)
+![screenshot](https://github.com/milon27/react-media-ilbrary/raw/master/media-lib-select.png)
