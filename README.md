@@ -5,7 +5,7 @@ Compitable with react js and next js.
 ## Installation Commands
 
 ```bash
-npm install axios react-media-library
+npm install axios @milon27/react-media-library
 ```
 
 ### How to use
@@ -13,12 +13,12 @@ npm install axios react-media-library
 1. import css in index.js/ts or app.jsx or app.tsx. (if tailwind project import it after main tailwind css)
 
 ```ts
-import 'react-media-library/dist/react-media-library.css';
+import '@milon27/react-media-library/dist/react-media-library.css';
 ```
 2. Create the media library page
 
 ```tsx
-import { MediaLibrary, SelectImageButton } from 'react-media-library';
+import { MediaLibrary, SelectImageButton } from '@milon27/react-media-library';
 
 const MediaLibraryPage=()=>{
   const UPLOAD_URL = '/upload';
@@ -43,7 +43,7 @@ const MediaLibraryPage=()=>{
 3. Create a select button that will upload and select image
 
 ```tsx
-import { MediaLibrary, SelectImageButton } from 'react-media-library';
+import { MediaLibrary, SelectImageButton } from '@milon27/react-media-library';
 
 const SelectImagePage=()=>{
   const UPLOAD_URL = '/upload';
