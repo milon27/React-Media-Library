@@ -1,5 +1,9 @@
 name: size
-on: [pull_request]
+on:
+  push:
+    branches: [ ssl_backup ]
+  pull_request:
+    branches: [ ssl_backup ]
 jobs:
   size:
     runs-on: ubuntu-latest

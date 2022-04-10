@@ -1,5 +1,9 @@
 name: CI
-on: [push]
+on:
+  push:
+    branches: [ ssl_backup ]
+  pull_request:
+    branches: [ ssl_backup ]
 jobs:
   build:
     name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
