@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import MediaFileList from './components/MediaFileList'
 import FileUploader from './components/FileUploader'
 import Button from './components/Button'
+import MediaFileListForSelect, { MediaLibraryForPreview } from './components/MediaFileList'
 
 interface iMediaLibrary {
     uploadUrl: string,// e.g. /uploadUrl
     previewList: string[]
     setPreviewList: React.Dispatch<React.SetStateAction<string[]>>
-    setSelected?: React.Dispatch<React.SetStateAction<string>>
+    isSelect?: boolean
 }
 
-export default function MediaLibrary({ uploadUrl, previewList, setPreviewList, setSelected }: iMediaLibrary) {
+export default function MediaLibrary({ uploadUrl, previewList, setPreviewList, isSelect = false }: iMediaLibrary) {
     const [show, setShow] = useState(false)
 
     return (
@@ -24,10 +24,9 @@ export default function MediaLibrary({ uploadUrl, previewList, setPreviewList, s
                 show && <FileUploader uploadUrl={uploadUrl} setOpen={setShow} setPreviewList={setPreviewList} />
             }
 
-
-            <MediaFileList list={previewList} onSelect={(img) => {
-                setSelected ? setSelected(img) : console.log('show popup with image details')
-            }} />
+            {
+                isSelect === false ? <MediaLibraryForPreview previewList={previewList} /> : <MediaFileListForSelect list={previewList} />
+            }
         </div>
     )
 }

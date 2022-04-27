@@ -49,7 +49,7 @@ const SelectImagePage=()=>{
   const UPLOAD_URL = '/upload';
   const GET_ALL_IMAGE_API_URL = '/get-all';
   const [imageList, setImageList] = useState<string[]>([] as string[])
-  const [select, setSelect] = useState("")
+  const [select, setSelect] = useState<string[]>([])
   
   // load all images here which are already in the server
   useEffect(() => {
@@ -59,16 +59,19 @@ const SelectImagePage=()=>{
     })
   }, [])
 
-  const onSelect = (url: string) => {
-    setSelect(url)
+  const onSelect = (urls: string[]) => {
+    setSelect(urls)
   }
 
   return <>
+    {/* multiple image select */}
+    <SelectImageButton uploadUrl={UPLOAD_URL} title='Select Multiple Image' previewList={imageList} setPreviewList={setImageList} onSelect={onSelect} multiple={true} />
 
-    <SelectImageButton uploadUrl={UPLOAD_URL} title='Select Image' previewList={imageList} setPreviewList={setImageList} onSelect={onSelect} />
+    {/* single image select */}
+    <SelectImageButton uploadUrl={UPLOAD_URL} title='Select Single Image' previewList={imageList} setPreviewList={setImageList} onSelect={onSelect} multiple={false} />
 
     <br /><br />
-    {select && <img className='w-36 h-36 object-cover' src={select} alt="" />}
+    {select.toString()}
 
   </>
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
 import { MediaLibrary, SelectImageButton } from '../src';
 
@@ -38,7 +38,7 @@ export const SelectImageBtn = () => {
     'https://images.unsplash.com/photo-1649418824126-65f323a02c2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60'
   ] as string[])
 
-  const [select, setSelect] = useState("")
+  const [select, setSelect] = useState<string[]>([])
 
   const UPLOAD_URL = '/upload';
 
@@ -51,15 +51,18 @@ export const SelectImageBtn = () => {
   // })
   // }, [])
 
-  const onSelect = (url: string) => {
+  const onSelect = (url: string[]) => {
     setSelect(url)
   }
 
   return <>
-    <SelectImageButton uploadUrl={UPLOAD_URL} title='Select Image' previewList={imageList} setPreviewList={setImageList} onSelect={onSelect} />
+    <SelectImageButton uploadUrl={UPLOAD_URL} title='Select Multiple Image' previewList={imageList} setPreviewList={setImageList} onSelect={onSelect} multiple={true} />
 
     <br /><br />
-    {select && <img className='w-36 h-36 object-cover' src={select} alt="" />}
+    {/* {select && <img className='w-36 h-36 object-cover' src={select} alt="" />} */}
+    {select.toString()}
+
+    <SelectImageButton uploadUrl={UPLOAD_URL} title='Select Single Image' previewList={imageList} setPreviewList={setImageList} onSelect={onSelect} multiple={false} />
 
   </>
 }

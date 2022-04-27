@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { createContext, useState } from 'react'
 import Button from './components/Button'
 import Modal from './components/Modal'
 import MediaLibrary from './MediaLibrary'
@@ -8,28 +8,40 @@ interface iSelectImageButton {
     uploadUrl: string,// e.g. /uploadUrl
     previewList: string[]
     setPreviewList: React.Dispatch<React.SetStateAction<string[]>>
-    onSelect: (_selected: string) => void
+    multiple?: boolean
+    onSelect: (_selected: string[]) => void
 }
+
+interface iContext {
+    multiple: boolean,
+    selected: string[]
+    setSelected: React.Dispatch<React.SetStateAction<string[]>>
+}
+export const SelectImageContext = createContext<iContext>({} as iContext)
 
 export default function SelectImageButton({
     title = "Select A Image",
     uploadUrl,
-    previewList, setPreviewList, onSelect
+    previewList, setPreviewList, multiple = false, onSelect
 }: iSelectImageButton) {
     const [show, setShow] = useState(false)
-    const [selected, setSelected] = useState('')
+    const [selected, setSelected] = useState<string[]>([])
+
+    const contextValue = {
+        multiple, selected, setSelected
+    } as iContext
 
     return (
-        <>
+        <SelectImageContext.Provider value={contextValue}>
             <Button title={title} onClick={() => setShow(true)} border={false} />
 
             <Modal
                 hideTitle
                 show={show}
                 setShow={setShow}
-                title="test"
+                title=""
                 onSelect={() => {
-                    if (selected == '') {
+                    if (selected.length < 1) {
                         alert('Select A iamge first!')
                         return;
                     }
@@ -41,9 +53,10 @@ export default function SelectImageButton({
                     uploadUrl={uploadUrl}
                     previewList={previewList}
                     setPreviewList={setPreviewList}
-                    setSelected={setSelected}
+                    isSelect={true}
                 />
+
             </Modal>
-        </>
+        </SelectImageContext.Provider>
     )
 }
