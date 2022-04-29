@@ -21,7 +21,7 @@ import '@milon27/react-media-library/dist/react-media-library.css';
 import { MediaLibrary, SelectImageButton } from '@milon27/react-media-library';
 
 const MediaLibraryPage=()=>{
-  const UPLOAD_URL = '/upload';
+  const UPLOAD_URL = '/upload'; // upload endpoint should give back the full image url as string (this will visible as preview when upload a new image.) 
   const GET_ALL_IMAGE_API_URL = '/get-all';
   const [imageList, setImageList] = useState<string[]>([] as string[])
   
@@ -46,7 +46,7 @@ const MediaLibraryPage=()=>{
 import { MediaLibrary, SelectImageButton } from '@milon27/react-media-library';
 
 const SelectImagePage=()=>{
-  const UPLOAD_URL = '/upload';
+  const UPLOAD_URL = '/upload';// upload endpoint should give back the full image url as string (this will visible as preview when upload a new image.)
   const GET_ALL_IMAGE_API_URL = '/get-all';
   const [imageList, setImageList] = useState<string[]>([] as string[])
   const [select, setSelect] = useState<string[]>([])

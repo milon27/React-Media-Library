@@ -44,20 +44,14 @@ export default function FileUploader({ uploadUrl, setPreviewList, setOpen }: iFi
                     setProgress(percentage)
                 }
             }).then(res => {
-                const uploadedItem = tmpList[0]
-                //convert into base64 string
-                const reader = new FileReader()
-                reader.onload = () => {
-                    setPreviewList(prev => {
-                        let p = [reader.result! as string, ...prev]
-                        return p;
-                    })
-                }
-                reader.readAsDataURL(uploadedItem)
+                setPreviewList(prev => {
+                    let p = [res.data, ...prev]
+                    return p;
+                })
                 // preview done.
                 tmpList.shift()
                 setProgress(undefined)
-                console.log(res);
+                console.log(res.data);
             }).catch(e => {
                 tmpList.shift()
                 setProgress(undefined)
