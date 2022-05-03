@@ -44,7 +44,7 @@ const MediaLibraryPage=()=>{
         console.log(res.data)
         setImageList(old => {
           old.splice(index, 1)
-          return old
+          return [...old]
         })
     }).catch(e => {
         console.log(e)
