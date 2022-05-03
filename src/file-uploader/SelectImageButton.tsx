@@ -54,6 +54,7 @@ export default function SelectImageButton({
                     previewList={previewList}
                     setPreviewList={setPreviewList}
                     isSelect={true}
+                    onFileDelete={() => { }}
                 />
 
             </Modal>

@@ -5,12 +5,13 @@ import MediaFileListForSelect, { MediaLibraryForPreview } from './components/Med
 
 interface iMediaLibrary {
     uploadUrl: string,// e.g. /uploadUrl
+    onFileDelete: (index: number) => void,
     previewList: string[]
     setPreviewList: React.Dispatch<React.SetStateAction<string[]>>
     isSelect?: boolean
 }
 
-export default function MediaLibrary({ uploadUrl, previewList, setPreviewList, isSelect = false }: iMediaLibrary) {
+export default function MediaLibrary({ uploadUrl, onFileDelete, previewList, setPreviewList, isSelect = false }: iMediaLibrary) {
     const [show, setShow] = useState(false)
 
     return (
@@ -25,7 +26,7 @@ export default function MediaLibrary({ uploadUrl, previewList, setPreviewList, i
             }
 
             {
-                isSelect === false ? <MediaLibraryForPreview previewList={previewList} /> : <MediaFileListForSelect list={previewList} />
+                isSelect === false ? <MediaLibraryForPreview onFileDelete={onFileDelete} previewList={previewList} /> : <MediaFileListForSelect list={previewList} />
             }
         </div>
     )

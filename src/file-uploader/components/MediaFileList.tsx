@@ -49,10 +49,11 @@ export default function MediaFileListForSelect({ list }: iFileList) {
 
 
 interface iMediaLibraryForPreview {
+    onFileDelete: (index: number) => void
     previewList: string[]
 }
 
-export const MediaLibraryForPreview = ({ previewList }: iMediaLibraryForPreview) => {
+export const MediaLibraryForPreview = ({ onFileDelete, previewList }: iMediaLibraryForPreview) => {
     const [preview, setPreview] = useState(false)
     const [selectedIndex, setSelectedIndex] = useState<number | undefined>(undefined)
 
@@ -74,7 +75,14 @@ export const MediaLibraryForPreview = ({ previewList }: iMediaLibraryForPreview)
             show={preview}
             setShow={setPreview}
             title="Preview Image"
-            hideFooter={true}
+            btnTitle='Delete'
+            onSelect={() => {
+                if (!selectedIndex) {
+                    return
+                }
+                onFileDelete(selectedIndex);
+                setPreview(false)
+            }}
         >
             {
                 selectedIndex !== undefined && <div className='block md:flex gap-4'>

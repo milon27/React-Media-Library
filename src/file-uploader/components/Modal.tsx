@@ -8,12 +8,13 @@ interface iModal {
     setShow: React.Dispatch<React.SetStateAction<boolean>>
     title: string
     children: React.ReactNode
+    btnTitle?: string
     onSelect?: () => void
 }
-export default function Modal({ hideTitle = false, hideFooter = false, show = false, setShow, title, onSelect = () => { }, children }: iModal) {
+export default function Modal({ hideTitle = false, hideFooter = false, show = false, setShow, title, onSelect = () => { }, btnTitle = "Select", children }: iModal) {
     return (
         <div aria-hidden="true" className={show === true ? " bg-slate-900 flex bg-opacity-60 overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-0 bottom-0 z-50 justify-center items-center h-modal md:h-full md:inset-0" : "hidden"}>
-            <div className="relative px-4 w-full max-w-6xl max-h-[85vh] md:h-auto">
+            <div className="relative px-4 w-max max-w-6xl max-h-[85vh] md:h-auto">
                 {/* Modal content */}
                 <div className="relative bg-white rounded-lg shadow ">
 
@@ -42,7 +43,7 @@ export default function Modal({ hideTitle = false, hideFooter = false, show = fa
                     {
                         hideFooter == false && <div className="flex justify-end items-center px-6 pb-6 space-x-2 rounded-b ">
                             <Button title="Cancel" onClick={() => { setShow(false) }} />
-                            <Button title="Select" onClick={onSelect} border={false} />
+                            <Button title={btnTitle} onClick={onSelect} border={false} />
                         </div>
                     }
 

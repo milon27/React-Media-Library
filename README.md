@@ -33,8 +33,29 @@ const MediaLibraryPage=()=>{
     })
   }, [])
 
+  const deleteFile=(index:number)=>{
+    const url = setImageList[selectedIndex]
+    const name=url.substring(url.lastIndexOf('/') + 1);
+    axios.delete('/file/:name', {
+        params: {
+            name: name
+        }
+    }).then(res => {
+        console.log(res.data)
+        setImageList(old => {
+          old.splice(index, 1)
+          return old
+        })
+    }).catch(e => {
+        console.log(e)
+    })
+  }
+
   return <div>
-      <MediaLibrary uploadUrl={UPLOAD_URL} previewList={imageList} setPreviewList={setImageList} />
+      <MediaLibrary uploadUrl={UPLOAD_URL} previewList={imageList} setPreviewList={setImageList} onFileDelete={(index: number) => {
+      //do axios impliemntaion
+      deleteFile(index);
+    }} />
   </div>
 }
 

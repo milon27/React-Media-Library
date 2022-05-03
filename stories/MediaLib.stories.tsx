@@ -16,6 +16,9 @@ export const MediaLibarayPage = () => {
   ] as string[])
 
   const UPLOAD_URL = '/upload';
+  const onFileDelete = () => {
+
+  }
 
   // load all images here which are already in the server
   // useEffect(() => {
@@ -25,9 +28,33 @@ export const MediaLibarayPage = () => {
   // })
   // }, [])
 
+  //axios implimentation of file delete
+  // const url = previewList[selectedIndex]
+  // const name = url.substring(url.lastIndexOf('/') + 1);
+  // //const deleteUrl = '/file/:name'
+  // const paramKey = deleteUrl.substring(deleteUrl.lastIndexOf(":") + 1)
+  // axios.delete(deleteUrl, {
+  //     params: {
+  //         [paramKey]: name
+  //     }
+  // }).then(res => {
+  //     console.log(res.data)
+  //     setPreviewList(old => {
+  //         old.splice(selectedIndex, 1)
+  //         return old
+  //     })
+  // }).catch(e => {
+  //     console.log(e)
+  // })
 
   return <>
-    <MediaLibrary uploadUrl={UPLOAD_URL} previewList={imageList} setPreviewList={setImageList} />
+    <MediaLibrary uploadUrl={UPLOAD_URL} previewList={imageList} setPreviewList={setImageList} onFileDelete={(index: number) => {
+      //do axios impliemntaion
+      setImageList(old => {
+        old.splice(index, 1)
+        return old
+      })
+    }} />
   </>
 }
 
