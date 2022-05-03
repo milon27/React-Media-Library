@@ -34,7 +34,7 @@ const MediaLibraryPage=()=>{
   }, [])
 
   const deleteFile=(index:number)=>{
-    const url = setImageList[selectedIndex]
+    const url = imageList[index]
     const name=url.substring(url.lastIndexOf('/') + 1);
     axios.delete('/file/:name', {
         params: {
