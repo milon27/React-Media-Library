@@ -77,7 +77,7 @@ export const MediaLibraryForPreview = ({ onFileDelete, previewList }: iMediaLibr
             title="Preview Image"
             btnTitle='Delete'
             onSelect={() => {
-                if (!selectedIndex) {
+                if (selectedIndex == undefined) {
                     return
                 }
                 onFileDelete(selectedIndex);
