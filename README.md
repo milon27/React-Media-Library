@@ -10,7 +10,7 @@ npm install axios @milon27/react-media-library
 
 ### How to use
 
-1. import css in index.js/ts or app.jsx or app.tsx. (if tailwind project import it after main tailwind css)
+1. import css in index.js/ts or app.jsx or app.tsx.
 
 ```ts
 import '@milon27/react-media-library/dist/react-media-library.css';
