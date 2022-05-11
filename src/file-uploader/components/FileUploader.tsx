@@ -67,22 +67,22 @@ export default function FileUploader({ uploadUrl, setPreviewList, setOpen }: iFi
 
 
     return (
-        <div className='relative'>
-            <span className='absolute top-2 right-4 '>
+        <div className='rml-relative'>
+            <span className='rml-absolute rml-top-2 rml-right-4 '>
 
-                <button className="text-gray-600 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-2.5 py-2.5 hover:text-gray-900 focus:z-10 " onClick={() => setOpen(false)} type="button" >
-                    <svg className="w-5 h-5 rounded-lg" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
+                <button className="rml-text-gray-600 rml-bg-white hover:rml-bg-gray-100 focus:rml-ring-4 focus:rml-ring-gray-300 rml-rounded-lg rml-border rml-border-gray-200 rml-text-sm rml-font-medium rml-px-2.5 rml-py-2.5 hover:rml-text-gray-900 focus:rml-z-10 " onClick={() => setOpen(false)} type="button" >
+                    <svg className="rml-w-5 rml-h-5 rml-rounded-lg" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
                 </button>
             </span >
-            <div className='w-full min-h-[180px] border-4 rounded border-dotted flex flex-col justify-center items-center p-4 my-4 ' {...getRootProps()}>
+            <div className='rml-w-full rml-min-h-[180px] rml-border-4 rml-rounded rml-border-dotted rml-flex rml-flex-col rml-justify-center rml-items-center rml-p-4 rml-my-4 ' {...getRootProps()}>
                 <input {...getInputProps()} />
                 {
-                    (isDragActive) ? <> <h1 className='text-gray-700 font-bold text-lg '>Drop files to upload</h1></> :
+                    (isDragActive) ? <> <h1 className='rml-text-gray-700 rml-font-bold rml-text-lg '>Drop files to upload</h1></> :
                         <>
 
-                            <h1 className='text-gray-700 text-2xl '>Drop files to upload</h1>
+                            <h1 className='rml-text-gray-700 rml-text-2xl '>Drop files to upload</h1>
                             or
-                            <div className='text-gray-600  text-xl '>Select Files</div>
+                            <div className='rml-text-gray-600 rml-text-xl '>Select Files</div>
                             {/* <p className='text-gray-600  text-sm '>Maximum upload file size: 5 MB.</p> */}
 
                         </>

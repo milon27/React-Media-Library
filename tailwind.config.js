@@ -3,5 +3,6 @@ module.exports = {
   theme: {
     extend: {},
   },
+  prefix: "rml-",
   plugins: [],
 }

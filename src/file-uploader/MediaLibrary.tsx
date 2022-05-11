@@ -16,8 +16,8 @@ export default function MediaLibrary({ uploadUrl, onFileDelete, previewList, set
 
     return (
         <div>
-            <div className='flex justify-between items-center mb-4 '>
-                <h1 className='font-bold text-2xl'> Media Library </h1>
+            <div className='rml-flex rml-justify-between rml-items-center rml-mb-4 '>
+                <h1 className='rml-font-bold rml-text-2xl'> Media Library </h1>
 
                 <Button title="Upload New Image" onClick={() => { setShow(true) }} />
             </div>

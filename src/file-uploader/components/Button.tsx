@@ -7,11 +7,11 @@ export default function Button({ title, onClick, border = true }: {
 }) {
     if (border) {
         return (
-            <button className="text-gray-600 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 " onClick={onClick}>{title}</button>
+            <button className="rml-text-gray-600 rml-bg-white hover:rml-bg-gray-100 focus:rml-ring-4 focus:rml-ring-gray-300 rml-rounded-lg rml-border rml-border-gray-200 rml-text-sm rml-font-medium rml-px-5 rml-py-2.5 hover:rml-text-gray-900 focus:rml-z-10 " onClick={onClick}>{title}</button>
         )
     } else {
         return (
-            <button className="text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" onClick={onClick}>{title}</button>
+            <button className="rml-text-white rml-bg-slate-700 hover:rml-bg-slate-800 focus:rml-ring-4 focus:rml-ring-blue-300 rml-font-medium rml-rounded-lg rml-text-sm rml-px-5 rml-py-2.5 rml-text-center" onClick={onClick}>{title}</button>
         )
     }
 }

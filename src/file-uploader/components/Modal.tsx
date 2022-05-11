@@ -13,20 +13,20 @@ interface iModal {
 }
 export default function Modal({ hideTitle = false, hideFooter = false, show = false, setShow, title, onSelect = () => { }, btnTitle = "Select", children }: iModal) {
     return (
-        <div aria-hidden="true" className={show === true ? " bg-slate-900 flex bg-opacity-60 overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-0 bottom-0 z-50 justify-center items-center h-modal md:h-full md:inset-0" : "hidden"}>
-            <div className="relative px-4 w-max max-w-6xl max-h-[85vh] md:h-auto">
+        <div aria-hidden="true" className={show === true ? " rml-bg-slate-900 rml-flex rml-bg-opacity-60 rml-overflow-y-auto rml-overflow-x-hidden rml-fixed rml-right-0 rml-left-0 rml-top-0 rml-bottom-0 rml-z-50 rml-justify-center rml-items-center rml-h-modal md:rml-h-full md:rml-inset-0" : "rml-hidden"}>
+            <div className="rml-relative rml-px-4 rml-w-max rml-max-w-6xl rml-max-h-[85vh] md:rml-h-auto">
                 {/* Modal content */}
-                <div className="relative bg-white rounded-lg shadow ">
+                <div className="rml-relative rml-bg-white rml-rounded-lg rml-shadow ">
 
                     {hideTitle === true ? <></> :
                         <>
-                            <div className="flex justify-between items-start p-5 rounded-t border-b ">
-                                <h3 className="text-xl font-semibold text-gray-900 lg:text-2xl ">
+                            <div className="rml-flex rml-justify-between rml-items-start rml-p-5 rml-rounded-t rml-border-b ">
+                                <h3 className="rml-text-xl rml-font-semibold rml-text-gray-900 lg:rml-text-2xl ">
                                     {title}
                                 </h3>
 
-                                <button onClick={() => setShow(false)} type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center " data-modal-toggle="defaultModal">
-                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
+                                <button onClick={() => setShow(false)} type="button" className="rml-text-gray-400 rml-bg-transparent hover:rml-bg-gray-200 hover:rml-text-gray-900 rml-rounded-lg rml-text-sm rml-p-1.5 rml-ml-auto rml-inline-flex rml-items-center " data-modal-toggle="defaultModal">
+                                    <svg className="rml-w-5 rml-h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
                                 </button>
                             </div>
                         </>}
@@ -34,14 +34,14 @@ export default function Modal({ hideTitle = false, hideFooter = false, show = fa
                     {/* end Modal header */}
 
                     {/* Modal body */}
-                    <div className="p-6 space-y-6">
+                    <div className="rml-p-6 rml-space-y-6">
                         {
                             children
                         }
                     </div>
                     {/* Modal footer */}
                     {
-                        hideFooter == false && <div className="flex justify-end items-center px-6 pb-6 space-x-2 rounded-b ">
+                        hideFooter == false && <div className="rml-flex rml-justify-end rml-items-center rml-px-6 rml-pb-6 rml-space-x-2 rml-rounded-b ">
                             <Button title="Cancel" onClick={() => { setShow(false) }} />
                             <Button title={btnTitle} onClick={onSelect} border={false} />
                         </div>
